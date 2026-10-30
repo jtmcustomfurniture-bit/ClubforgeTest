@@ -12,12 +12,14 @@
     <h1>ClubForge Calendar Integration Test</h1>
     <p>Testing the embedded tournament calendar.</p>
 
-    <iframe
-        src="https://clubforgegolf.com/site/ahmgc/calendar/embed"
-        title="ClubForge Tournament Calendar"
-        width="100%"
-        height="800"
-        style="border:none;">
-    </iframe>
+<iframe id="clubforge-calendar" src="https://clubforgegolf.com/site/ahmgc/calendar/embed" title="Tournament Calendar" width="100%" height="800" style="border:0" loading="lazy"></iframe>
+<script>
+  (function () {
+    const frame = document.getElementById('clubforge-calendar');
+    const url = new URL(frame.src);
+    url.searchParams.set('embedHost', window.location.href);
+    frame.src = url.toString();
+  })();
+</script>
 </body>
 </html>
